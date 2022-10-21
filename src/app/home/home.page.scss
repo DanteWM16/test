@@ -33,3 +33,17 @@ ion-thumbnail {
 .cardProduct {
   width: 100vw;
 }
+
+.footerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-button {
+    margin-bottom: 20px;
+  }
+}
+
+ion-searchbar {
+  padding: 5px;
+}

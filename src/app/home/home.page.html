@@ -6,7 +6,8 @@
     <ion-searchbar
       mode="ios"
       showCancelButton="never"
-      [placeholder]="'SEARCH_PLACEHOLDER'"
+      [placeholder]="'buscar producto...'"
+      (ionChange)="searchProducts($event)"
     >
     </ion-searchbar>
     <ion-buttons slot="end">
@@ -45,7 +46,7 @@
 
     <ion-list>
       <ion-row>
-        <ion-col size-xs="6" size-sm="4" size-md="4" size-lg="3">
+        <ion-col size-xs="12" size-sm="4" size-md="4" size-lg="3" *ngFor="let product of productsFinded">
           <!-- <app-shop-item [item]="item" [routerLink]="['/1/home/items/' + item.slug]">
           </app-shop-item> -->
           <ion-card
@@ -61,39 +62,44 @@
               <ion-row>
                 <ion-col size="2">
                   <div [style.padding]="styles?.padding" class="image-container">
-                    <div class="bg-img" [offset]="300" defaultImage="./assets/imgs/placeholder.png" [lazyLoad]="'https://res.cloudinary.com/grupo-jinim-sa-de-cv/image/upload/v1656627002/Avera%20App/Productos/PHEPA01/PHEPA01-11.png'"></div>
+                    <div class="bg-img">
+                      <ion-img src={{product.image}}></ion-img>
+                    </div>
                   </div>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-text color="dark">
+                    <p class="link ellipsis text-medium">{{product.name}}</p>
+                  </ion-text>
+                </ion-col>
+                <ion-col size="4">
+                  <!-- <bar-rating rate="5" [readOnly]="true" [max]="5">
+                    <ng-template ratingActive>
+                      <ion-icon style="font-size: 12px;" name="star" color="warning"></ion-icon>
+                    </ng-template>
+                    <ng-template ratingInactive>
+                      <ion-icon style="font-size: 12px;" name="star" color="medium"></ion-icon>
+                    </ng-template>
+                  </bar-rating> -->
+                  <ion-text color="dark">
+                    <p class="ion-no-margin">
+                      <span class="bold">{{product.bestPriceFormated}}</span><br>
+                      <small>
+                        <ion-text color="medium">
+                          <s class="bold">
+                            {{product.listPriceFormated}}
+                          </s>
+                        </ion-text>
+                      </small>
+                    </p>
+                  </ion-text>
                 </ion-col>
               </ion-row>
             </ion-grid>
-            <ion-text color="dark">
-              <p class="link ellipsis text-medium">Jarra de agua</p>
-            </ion-text>
-            <bar-rating rate="5" [readOnly]="true" [max]="5">
-              <ng-template ratingActive>
-                <ion-icon style="font-size: 12px;" name="star" color="warning"></ion-icon>
-              </ng-template>
-              <ng-template ratingInactive>
-                <ion-icon style="font-size: 12px;" name="star" color="medium"></ion-icon>
-              </ng-template>
-            </bar-rating>
-
-            <ion-text color="dark">
-              <p class="ion-no-margin">
-                <span class="bold">500&nbsp;</span>
-                <small>
-                  <ion-text color="medium">
-                    <s class="bold">
-                      500
-                    </s>
-                  </ion-text>
-                </small>
-              </p>
-              <p class="bold ion-no-margin">
-                500
-              </p>
-            </ion-text>
           </ion-card-content>
+          <div class="footerCard">
+            <ion-button>Agregar a carrito</ion-button>
+          </div>
           </ion-card>
         </ion-col>
       </ion-row>
