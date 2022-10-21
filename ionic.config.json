@@ -1,0 +1,7 @@
+{
+  "name": "avera-shop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
