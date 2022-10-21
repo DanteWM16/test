@@ -1,0 +1,5 @@
+<ion-button strong class="ion-margin-vertical" [color]="buttonColor" [fill]="buttonFill" [size]="buttonSize" [disabled]="isRequesting"
+  (click)="onRequestPushPermission()" *ngIf="canRequestPermission">
+  <ion-icon slot="start" name="notifications"></ion-icon>
+  {{ 'ENABLE_PUSH' | translate }}
+</ion-button>

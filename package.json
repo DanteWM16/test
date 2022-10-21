@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^14.2.7",
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
@@ -28,8 +29,14 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
+    "@ngx-share/button": "^7.1.4",
+    "@ngx-share/buttons": "^7.1.4",
+    "@ngx-share/core": "^7.1.4",
+    "animate": "^1.0.0",
+    "animate.css": "^4.1.1",
     "ionicons": "^6.0.3",
     "rxjs": "~6.6.0",
+    "swiper": "^8.4.4",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

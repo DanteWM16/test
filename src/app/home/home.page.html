@@ -1,20 +1,104 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar fixed>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar
+      mode="ios"
+      showCancelButton="never"
+      [placeholder]="'SEARCH_PLACEHOLDER'"
+    >
+    </ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="start" name="cart-outline"></ion-icon>
+        <span></span>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-refresher slot="fixed">
+    <ion-refresher-content
+      pullingText="{{ 'PULL_TO_REFRESH' }}"
+      refreshingText="{{ 'REFRESHING' }}"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
 
-  <div id="container">
-    <strong>Ready to create an app? {{this.message}}</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid fixed>
+    <!-- <div *ngIf="isLoadingViewVisible">
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of [].constructor(20)">
+          <div class="skeleton-wrapper">
+            <ion-skeleton-text animated class="skeleton-img" style="width: 100%"></ion-skeleton-text>
+            <ion-skeleton-text animated class="skeleton-title" style="width: 100%"></ion-skeleton-text>
+            <div class="flex flex-row justify-content-space-between mt-md">
+              <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+              <ion-skeleton-text animated style="width: 15%"></ion-skeleton-text>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div> -->
+
+    <ion-list>
+      <ion-row>
+        <ion-col size-xs="6" size-sm="4" size-md="4" size-lg="3">
+          <!-- <app-shop-item [item]="item" [routerLink]="['/1/home/items/' + item.slug]">
+          </app-shop-item> -->
+          <ion-card
+            button
+            [style.box-shadow]="styles?.boxShadow"
+            [style.border-radius]="styles?.radius"
+            [style.border]="styles?.border"
+            [style.margin]="styles?.margin"
+            class="full-width ion-no-margin cardProduct"
+          >
+          <ion-card-content class="ion-text-center">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="2">
+                  <div [style.padding]="styles?.padding" class="image-container">
+                    <div class="bg-img" [offset]="300" defaultImage="./assets/imgs/placeholder.png" [lazyLoad]="'https://res.cloudinary.com/grupo-jinim-sa-de-cv/image/upload/v1656627002/Avera%20App/Productos/PHEPA01/PHEPA01-11.png'"></div>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-text color="dark">
+              <p class="link ellipsis text-medium">Jarra de agua</p>
+            </ion-text>
+            <bar-rating rate="5" [readOnly]="true" [max]="5">
+              <ng-template ratingActive>
+                <ion-icon style="font-size: 12px;" name="star" color="warning"></ion-icon>
+              </ng-template>
+              <ng-template ratingInactive>
+                <ion-icon style="font-size: 12px;" name="star" color="medium"></ion-icon>
+              </ng-template>
+            </bar-rating>
+
+            <ion-text color="dark">
+              <p class="ion-no-margin">
+                <span class="bold">500&nbsp;</span>
+                <small>
+                  <ion-text color="medium">
+                    <s class="bold">
+                      500
+                    </s>
+                  </ion-text>
+                </small>
+              </p>
+              <p class="bold ion-no-margin">
+                500
+              </p>
+            </ion-text>
+          </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </ion-grid>
+
+  <!-- <app-footer class="hide-xs-up show-lg-up"></app-footer> -->
 </ion-content>
